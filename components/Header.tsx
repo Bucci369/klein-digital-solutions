@@ -20,7 +20,7 @@ const Header = () => {
     { href: '/', label: 'Home' },
     { href: '/dienstleistungen', label: 'Services' },
     { href: '/#portfolio', label: 'Portfolio' },
-    { href: '/ueber-mich', label: 'Über mich' },
+    { href: '/ueber-mich', label: 'Über uns' },
     { href: '/kontakt', label: 'Kontakt' },
   ];
 

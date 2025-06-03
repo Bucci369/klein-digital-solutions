@@ -17,11 +17,11 @@ const AGB = () => {
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Allgemeine Geschäftsbedingungen (AGB)</h1>
         
         <section className="prose lg:prose-lg max-w-none text-gray-700">
-          <p>Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB“) regeln die vertraglichen Beziehungen zwischen Klein Digital Solutions (nachfolgend „Dienstleister“) und ihren Kunden (nachfolgend „Kunde“) für alle über die Website oder auf direktem Wege angebotenen Dienstleistungen im Bereich der Webentwicklung und digitalen Lösungen.</p>
-          <p>Abweichende oder ergänzende Bedingungen des Kunden werden nicht anerkannt, es sei denn, der Dienstleister stimmt ihrer Geltung ausdrücklich und schriftlich zu. Diese AGB gelten auch dann, wenn der Dienstleister in Kenntnis entgegenstehender oder von diesen AGB abweichender Bedingungen des Kunden seine Leistungen vorbehaltlos erbringt.</p>
+          <p>Diese Allgemeinen Geschäftsbedingungen (nachfolgend &bdquo;AGB&ldquo;) regeln die vertraglichen Beziehungen zwischen Klein Digital Solutions (nachfolgend &bdquo;Dienstleister&ldquo;) und ihren Kunden (nachfolgend &bdquo;Kunde&ldquo;) für alle über die Website oder auf direktem Wege angebotenen Dienstleistungen im Bereich der Webentwicklung und digitalen Lösungen.</p>
+          <p>Abweichende oder ergänzende Bedingungen des Kunden werden nicht anerkannt, es sei denn, der Dienstleister stimmt ihrer Geltung ausdrücklich schriftlich zu. Diese AGB gelten auch dann, wenn der Dienstleister in Kenntnis entgegenstehender oder von diesen AGB abweichender Bedingungen des Kunden seine Leistungen vorbehaltlos erbringt.</p>
 
           <h2>1. Vertragsgegenstand und Leistungsumfang</h2>
-          <p>Der Dienstleister erbringt Leistungen im Bereich der Full-Stack Webentwicklung, Frontend- und Backend-Entwicklung, Konzeption, Designumsetzung, E-Commerce-Lösungen, Performance-Optimierung, SEO-Beratung sowie weiterer digitaler Lösungen (nachfolgend „Leistungen“).</p>
+          <p>Der Dienstleister erbringt Leistungen im Bereich der Full-Stack Webentwicklung, Frontend- und Backend-Entwicklung, Konzeption, Designumsetzung, E-Commerce-Lösungen, Performance-Optimierung, SEO-Beratung sowie weiterer digitaler Lösungen (nachfolgend &bdquo;Leistungen&ldquo;).</p>
           <p>Der genaue Leistungsumfang wird in individuellen Angeboten, Projektbeschreibungen oder Lasten-/Pflichtenheften detailliert festgelegt und durch schriftliche Auftragsbestätigung des Kunden verbindlich. Hierbei können Technologien wie React, Next.js, TypeScript, Node.js und Datenbanken zum Einsatz kommen.</p>
           <p>Nicht im Leistungsumfang enthalten sind, sofern nicht explizit vereinbart: Hosting-Dienste, Domain-Registrierung, Lizenzgebühren für Drittsoftware oder -Dienste, fortlaufende Wartung und Pflege nach Projektabschluss, Suchmaschinenmarketing (SEM) oder Content-Erstellung.</p>
 
@@ -30,12 +30,12 @@ const AGB = () => {
           <p>Ein Vertrag kommt erst mit der schriftlichen Auftragsbestätigung des Dienstleisters oder der Erbringung der Leistung zustande. Mündliche Nebenabreden oder Zusicherungen bedürfen zu ihrer Wirksamkeit der schriftlichen Bestätigung durch den Dienstleister.</p>
 
           <h2>3. Preise und Zahlungsbedingungen</h2>
-          <p>Es gelten die im individuellen Angebot oder Vertrag vereinbarten Preise. Sofern nicht anders angegeben, verstehen sich alle Preise in Euro zzgl. der gesetzlichen Mehrwertsteuer.</p>
-          <p>Der Dienstleister ist berechtigt, angemessene Abschlagszahlungen entsprechend dem Fortschritt der Leistungen zu verlangen. Die genauen Zahlungspläne (z.B. Anzahlung, Meilensteinzahlungen, Schlusszahlung) werden im Angebot festgelegt.</p>
+          <p>Es gelten die im individuellen Angebot oder Vertrag vereinbarten Preise. Sofern nicht anders angegeben, verstehen sich alle Preise in Euro zzgl. der gesetzlichen Mehrwertsteuer, sofern nicht anders angegeben.</p>
+          <p>Der Dienstleister ist berechtigt, angemessene Abschlagszahlungen entsprechend dem Fortschritt der Leistungen zu verlangen. Die genauen Zahlungspläne (z.&nbsp;B. Anzahlung, Meilensteinzahlungen, Schlusszahlung) werden im Angebot festgelegt.</p>
           <p>Rechnungen sind innerhalb von [z.B. 14 Tagen] nach Rechnungsdatum ohne Abzug zur Zahlung fällig. Bei Zahlungsverzug ist der Dienstleister berechtigt, Verzugszinsen in Höhe des gesetzlichen Satzes zu verlangen. Die Geltendmachung eines weitergehenden Verzugsschadens bleibt vorbehalten.</p>
 
           <h2>4. Mitwirkungspflichten des Kunden</h2>
-          <p>Der Kunde ist zur umfassenden Mitwirkung bei der Erbringung der Leistungen verpflichtet. Dies umfasst insbesondere die rechtzeitige Bereitstellung aller notwendigen Informationen, Daten, Materialien, Inhalte (Texte, Bilder, Logos), Zugänge (z.B. zu Servern, APIs, Drittanbieter-Diensten) und Freigaben (z.B. Design-Freigaben, Test-Freigaben).</p>
+          <p>Der Kunde ist zur umfassenden Mitwirkung bei der Erbringung der Leistungen verpflichtet. Dies umfasst insbesondere die rechtzeitige Bereitstellung aller notwendigen Informationen, Daten, Materialien, Inhalte (Texte, Bilder, Logos), Zugänge (z.&nbsp;B. zu Servern, APIs, Drittanbieter-Diensten) und Freigaben (z.&nbsp;B. Design-Freigaben, Test-Freigaben).</p>
           <p>Der Kunde gewährleistet, dass die von ihm bereitgestellten Inhalte und Materialien frei von Rechten Dritter sind und keine gesetzlichen Bestimmungen oder die Rechte Dritter verletzen. Er stellt den Dienstleister diesbezüglich von allen Ansprüchen Dritter frei.</p>
           <p>Verzögerungen oder Mehraufwände, die durch die Nichteinhaltung der Mitwirkungspflichten des Kunden entstehen, gehen zu Lasten des Kunden und berechtigen den Dienstleister zur Geltendmachung von Mehraufwand oder zur Verschiebung von Terminen.</p>
 
