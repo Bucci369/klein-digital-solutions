@@ -61,7 +61,7 @@ const Header = () => {
             {/* Social Links */}
             <div className="flex items-center gap-4 ml-8 pl-8 border-l border-gray-300">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/Bucci369" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={`hover:text-blue-600 transition-colors ${

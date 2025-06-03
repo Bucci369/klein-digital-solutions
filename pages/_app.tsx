@@ -1,8 +1,15 @@
+// pages/_app.tsx
 import type { AppProps } from 'next/app';
-import '../styles/globals.css'; // Importieren der globalen Tailwind CSS Styles
+import '../styles/globals.css';
+import CookieConsent from '../components/CookieConsent'; // <-- Importiere die Komponente
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />
+      <CookieConsent /> {/* <-- Füge die Komponente hier ein */}
+    </>
+  );
 }
 
 export default MyApp;
