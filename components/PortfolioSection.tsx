@@ -231,37 +231,34 @@ const PortfolioSection = () => {
   }, []);
 
   const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'Moderne E-Commerce Lösung mit Headless CMS, Payment Integration und Inventory Management. Optimiert für Conversion und Performance.',
-      liveUrl: 'https://demo-shop.vercel.app/',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Stripe', 'Sanity'],
-      primaryColor: '#8B5CF6',
-      secondaryColor: '#3B82F6',
-      icon: <HiSparkles className="w-24 h-24" />, // Größe wieder auf w-24 h-24 gesetzt
-      // imageSrc: '/images/portfolio/ecommerce-platform.jpg' // <-- DIESE ZEILE ENTFERNEN
-    },
-    {
-      title: 'SaaS Dashboard',
-      description: 'Interaktives Analytics Dashboard mit Echtzeit-Daten, Charts und KPI-Tracking. Clean UI mit Dark Mode Support.',
-      liveUrl: 'https://analytics-dashboard-demo.vercel.app/',
-      technologies: ['React', 'TypeScript', 'Tailwind', 'Chart.js', 'WebSockets'],
-      primaryColor: '#F59E0B',
-      secondaryColor: '#EF4444',
-      icon: <HiGlobeAlt className="w-24 h-24" />, // Größe wieder auf w-24 h-24 gesetzt
-      // imageSrc: '/images/portfolio/saas-dashboard.jpg' // <-- DIESE ZEILE ENTFERNEN
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'Kreative Portfolio-Website für einen Designer mit 3D-Animationen, smooth scrolling und optimaler Performance.',
-      liveUrl: 'https://dj-arado-website.vercel.app/', // Deine Website
-      technologies: ['Next.js', 'Three.js', 'Framer Motion', 'GSAP', 'Vercel'],
-      primaryColor: '#10B981',
-      secondaryColor: '#06B6D4',
-      icon: <HiCode className="w-24 h-24" />, // Größe wieder auf w-24 h-24 gesetzt
-      // imageSrc: '/images/portfolio/dj-arado-website.jpg' // <-- DIESE ZEILE ENTFERNEN
-    },
-  ];
+  {
+    title: 'E-Commerce Platform',
+    description: 'Moderne E-Commerce Lösung mit Headless CMS, Payment Integration und Inventory Management. Optimiert für Conversion und Performance.',
+    liveUrl: 'https://demo-shop.vercel.app/',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Stripe', 'Sanity'],
+    primaryColor: '#8B5CF6',
+    secondaryColor: '#3B82F6',
+    icon: <HiSparkles className="w-24 h-24" />,
+  },
+  {
+    title: 'SaaS Dashboard',
+    description: 'Interaktives Analytics Dashboard mit Echtzeit-Daten, Charts und KPI-Tracking. Clean UI mit Dark Mode Support.',
+    liveUrl: 'https://analytics-dashboard-demo.vercel.app/',
+    technologies: ['React', 'TypeScript', 'Tailwind', 'Chart.js', 'WebSockets'],
+    primaryColor: '#F59E0B',
+    secondaryColor: '#EF4444',
+    icon: <HiGlobeAlt className="w-24 h-24" />,
+  },
+  {
+    title: 'Portfolio Website',
+    description: 'Kreative Portfolio-Website mit 3D-Animationen und reaktionsschnellem Design für eine beeindruckende Online-Präsenz.', // <-- HIER IST DER VERLÄNGERTE TEXT
+    liveUrl: 'https://dj-arado-website.vercel.app/', // Deine Website
+    technologies: ['Next.js', 'Three.js', 'Framer Motion', 'GSAP', 'Vercel'],
+    primaryColor: '#10B981',
+    secondaryColor: '#06B6D4',
+    icon: <HiCode className="w-24 h-24" />,
+  },
+];
 
   return (
     <section
