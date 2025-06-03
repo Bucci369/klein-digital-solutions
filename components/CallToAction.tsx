@@ -94,10 +94,10 @@ const CallToAction = () => {
                 <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </Link>
-            <a href="mailto:hello@kleindev.de">
+            <a href="mailto:info@kleindigitalsolutions.de">
               <button className="px-8 py-4 bg-transparent text-white font-semibold rounded-xl border-2 border-white/50 hover:bg-white/10 hover:border-white transition-all duration-300 flex items-center gap-2">
                 <HiMail className="w-5 h-5" />
-                <span>hello@kleindev.de</span>
+                <span>info@kleindigitalsolutions.de</span>
               </button>
             </a>
           </div>
