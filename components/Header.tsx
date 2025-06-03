@@ -1,108 +1,151 @@
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { HiMenu, HiX, HiCode } from 'react-icons/hi';
+import { SiGithub, SiLinkedin } from 'react-icons/si';
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/dienstleistungen', label: 'Services' },
+    { href: '/#portfolio', label: 'Portfolio' },
+    { href: '/ueber-mich', label: 'Über mich' },
+    { href: '/kontakt', label: 'Kontakt' },
+  ];
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <Link href="/">
-          <div className={`text-2xl tracking-tight cursor-pointer transition-colors duration-300 ${isScrolled ? 'text-gray-900' : 'text-gray-900'}`}>
-            <span className="font-bold">Klein</span> Digital <span className="font-medium text-blue-600">Solutions</span>
+    <header 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-4' 
+          : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="container mx-auto px-6 lg:px-12">
+        <nav className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/">
+            <div className="flex items-center gap-2 group">
+              <div className={`w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+                <HiCode className="text-white text-xl" />
+              </div>
+              <span className={`font-bold text-xl ${isScrolled ? 'text-gray-800' : 'text-gray-800'}`}>
+                Klein<span className="text-blue-600"> Digital Solutions</span>
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                <span className={`font-medium hover:text-blue-600 transition-colors ${
+                  isScrolled ? 'text-gray-700' : 'text-gray-700'
+                }`}>
+                  {link.label}
+                </span>
+              </Link>
+            ))}
+            
+            {/* Social Links */}
+            <div className="flex items-center gap-4 ml-8 pl-8 border-l border-gray-300">
+              <a 
+                href="https://github.com/yourusername" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`hover:text-blue-600 transition-colors ${
+                  isScrolled ? 'text-gray-600' : 'text-gray-600'
+                }`}
+              >
+                <SiGithub className="text-xl" />
+              </a>
+              <a 
+                href="https://linkedin.com/in/yourusername" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`hover:text-blue-600 transition-colors ${
+                  isScrolled ? 'text-gray-600' : 'text-gray-600'
+                }`}
+              >
+                <SiLinkedin className="text-xl" />
+              </a>
+            </div>
+
+            {/* CTA Button */}
+            <Link href="/kontakt">
+              <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                Projekt starten
+              </button>
+            </Link>
           </div>
-        </Link>
-        
-        <nav className="hidden lg:block">
-          <ul className="flex items-center space-x-8">
-            <li>
-              <Link href="/">
-                <span className={`relative text-sm font-medium transition-colors duration-300 hover:text-blue-600 cursor-pointer group ${isScrolled ? 'text-gray-700' : 'text-gray-700'}`}>
-                  Startseite
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/dienstleistungen">
-                <span className={`relative text-sm font-medium transition-colors duration-300 hover:text-blue-600 cursor-pointer group ${isScrolled ? 'text-gray-700' : 'text-gray-700'}`}>
-                  Dienstleistungen
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/ueber-uns">
-                <span className={`relative text-sm font-medium transition-colors duration-300 hover:text-blue-600 cursor-pointer group ${isScrolled ? 'text-gray-700' : 'text-gray-700'}`}>
-                  Über uns
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/kontakt">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 text-sm font-medium transition-all duration-300 hover:shadow-lg">
-                  Kontakt
-                </button>
-              </Link>
-            </li>
-          </ul>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={`lg:hidden p-2 ${isScrolled ? 'text-gray-800' : 'text-gray-800'}`}
+          >
+            {isMenuOpen ? <HiX className="text-2xl" /> : <HiMenu className="text-2xl" />}
+          </button>
         </nav>
 
-        <button 
-          className="lg:hidden flex flex-col space-y-1 p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <span className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
-        </button>
+        {/* Mobile Navigation */}
+        <div className={`lg:hidden transition-all duration-300 ${
+          isMenuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0 overflow-hidden'
+        }`}>
+          <div className="bg-white rounded-xl shadow-xl p-6 space-y-4">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href}>
+                <span 
+                  className="block text-gray-700 hover:text-blue-600 font-medium py-2 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </span>
+              </Link>
+            ))}
+            
+            {/* Mobile Social Links */}
+            <div className="flex gap-4 pt-4 border-t border-gray-200">
+              <a 
+                href="https://github.com/yourusername" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <SiGithub className="text-xl" />
+              </a>
+              <a 
+                href="https://linkedin.com/in/yourusername" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <SiLinkedin className="text-xl" />
+              </a>
+            </div>
+
+            <Link href="/kontakt">
+              <button 
+                className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300 mt-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Projekt starten
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
-
-      {isMobileMenuOpen && (
-        <nav className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
-          <ul className="container mx-auto px-6 py-6 space-y-4">
-            <li>
-              <Link href="/">
-                <span className="block text-gray-700 hover:text-blue-600 font-medium py-2 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                  Startseite
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/dienstleistungen">
-                <span className="block text-gray-700 hover:text-blue-600 font-medium py-2 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                  Dienstleistungen
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/ueber-uns">
-                <span className="block text-gray-700 hover:text-blue-600 font-medium py-2 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                  Über uns
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/kontakt">
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-medium transition-colors duration-300" onClick={() => setIsMobileMenuOpen(false)}>
-                  Kontakt
-                </button>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      )}
     </header>
   );
 };

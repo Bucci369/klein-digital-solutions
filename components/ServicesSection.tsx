@@ -1,247 +1,240 @@
-import { IconType } from 'react-icons';
-import { FaFileExcel, FaLaptopCode, FaRobot, FaHeadset } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useEffect, useState, useRef } from 'react';
+import { 
+  HiCode, 
+  HiLightningBolt, 
+  HiShoppingCart, 
+  HiChartBar,
+  HiArrowRight,
+  HiCheck
+} from 'react-icons/hi';
 
 interface ServiceCardProps {
-  icon: IconType;
   title: string;
   description: string;
+  icon: React.ReactNode;
+  features: string[];
+  gradient: string;
   link: string;
   index: number;
-  mousePosition: { x: number; y: number };
-  scrollY: number;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ 
-  icon: Icon, 
   title, 
   description, 
-  link, 
-  index,
-  mousePosition,
-  scrollY 
+  icon, 
+  features, 
+  gradient,
+  link,
+  index 
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  // Use variables to avoid ESLint warning
-  console.log(scrollY, mousePosition);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), index * 200);
-    return () => clearTimeout(timer);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), index * 200);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
   }, [index]);
 
-  const cardColors = [
-    { from: 'from-blue-600', to: 'to-blue-500', bg: 'from-blue-50 to-blue-100' },
-    { from: 'from-green-600', to: 'to-green-500', bg: 'from-green-50 to-green-100' },
-    { from: 'from-orange-600', to: 'to-orange-500', bg: 'from-orange-50 to-orange-100' },
-    { from: 'from-gray-600', to: 'to-gray-500', bg: 'from-gray-50 to-gray-100' },
-  ];
-
-  const cardColor = cardColors[index % cardColors.length];
-
   return (
-    <div 
+    <div
       ref={cardRef}
-      className={`group relative bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden flex flex-col h-full ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+      className={`relative group transform transition-all duration-700 ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+      }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{
-        minHeight: '400px',
-      }}
     >
-      {/* Animated background gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${cardColor.bg} rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform ${isHovered ? 'scale-105' : 'scale-100'}`}></div>
-      
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden rounded-3xl">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-1 h-1 bg-gradient-to-r ${cardColor.from} ${cardColor.to} rounded-full opacity-20 group-hover:opacity-60 transition-opacity duration-500`}
-            style={{
-              left: `${20 + (i * 15)}%`,
-              top: `${10 + (i * 10)}%`,
-              transform: `translateY(${isHovered ? -20 : 0}px) translateX(${isHovered ? (i % 2 ? 10 : -10) : 0}px)`,
-              transition: `transform ${500 + i * 100}ms ease-out`,
-              animationDelay: `${i * 200}ms`,
-            }}
-          ></div>
-        ))}
-      </div>
-      
-      <div className="relative z-10">
-        <div className="mb-8 transform transition-all duration-500 group-hover:scale-105 group-hover:rotate-1">
-          <div 
-            className={`w-20 h-20 bg-gradient-to-br ${cardColor.from} ${cardColor.to} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-2xl transition-all duration-500 relative overflow-hidden`}
-          >
-            <div className="absolute inset-0 bg-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-2xl"></div>
-            <Icon className="text-white text-3xl relative z-10 group-hover:scale-105 transition-transform duration-300" />
+      <div className="relative h-full bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        {/* Gradient Background */}
+        <div 
+          className={`absolute inset-0 opacity-5 ${gradient}`}
+        />
+        
+        {/* Content */}
+        <div className="relative p-8 h-full flex flex-col">
+          {/* Icon */}
+          <div className={`w-16 h-16 rounded-xl ${gradient} flex items-center justify-center mb-6 transform transition-transform duration-300 ${isHovered ? 'scale-110 rotate-3' : ''}`}>
+            <div className="text-white text-2xl">
+              {icon}
+            </div>
           </div>
-        </div>
-        
-        <h3 className="text-2xl font-bold mb-6 text-gray-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-gray-600 group-hover:bg-clip-text transition-all duration-500">
-          {title}
-        </h3>
-        
-        <p className="text-gray-600 mb-8 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 flex-1">
-          {description}
-        </p>
-        
-        <Link href={link}>
-          <div className="group/link inline-flex items-center text-blue-600 hover:text-gray-600 font-semibold text-base cursor-pointer relative overflow-hidden py-2">
-            <span className="relative z-10 transition-transform group-hover/link:translate-x-2 duration-300">
-              Mehr erfahren
-            </span>
-            <span className="ml-3 transition-all group-hover/link:translate-x-2 group-hover/link:scale-125 duration-300">
-              →
-            </span>
-            <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-gray-600 group-hover/link:w-full transition-all duration-500"></div>
-          </div>
-        </Link>
-      </div>
 
-      {/* Glowing border effect */}
-      <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${cardColor.from} ${cardColor.to} p-px`}>
-        <div className="w-full h-full bg-white rounded-3xl"></div>
+          {/* Title & Description */}
+          <h3 className="text-2xl font-bold text-gray-800 mb-3">{title}</h3>
+          <p className="text-gray-600 mb-6 flex-grow">{description}</p>
+
+          {/* Features */}
+          <ul className="space-y-2 mb-6">
+            {features.map((feature, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <HiCheck className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-700 text-sm">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <Link href={link}>
+            <button className={`w-full py-3 px-4 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 group/btn ${gradient} text-white hover:shadow-lg transform hover:-translate-y-0.5`}>
+              <span>Mehr erfahren</span>
+              <HiArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+        </div>
+
+        {/* Hover Effect Border */}
+        <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}>
+          <div className={`absolute inset-[2px] rounded-2xl ${gradient} opacity-20`} />
+        </div>
       </div>
     </div>
   );
 };
 
 const ServicesSection = () => {
-  const [sectionVisible, setSectionVisible] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    
     const handleMouseMove = (e: MouseEvent) => {
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
         setMousePosition({
-          x: (e.clientX - rect.left - rect.width / 2) / rect.width,
-          y: (e.clientY - rect.top - rect.height / 2) / rect.height,
+          x: (e.clientX - rect.left) / rect.width,
+          y: (e.clientY - rect.top) / rect.height,
         });
       }
     };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setSectionVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById('services-section');
-    if (element) observer.observe(element);
-
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const services = [
     {
-      icon: FaLaptopCode,
-      title: 'Website Development',
-      description: 'Moderne, hochperformante Websites und Web-Applikationen mit neuesten Technologien. Von Corporate Sites bis zu komplexen E-Commerce-Plattformen.',
-      link: '/dienstleistungen#website',
+      title: 'Web Development',
+      description: 'Moderne, responsive Websites und Web-Apps mit React, Next.js und TypeScript. Performance und User Experience stehen im Mittelpunkt.',
+      icon: <HiCode />,
+      features: [
+        'Single Page Applications (SPA)',
+        'Server-Side Rendering (SSR)',
+        'Progressive Web Apps (PWA)',
+        'API Integration & Development'
+      ],
+      gradient: 'bg-gradient-to-br from-blue-500 to-blue-700',
+      link: '/dienstleistungen#webdev'
     },
     {
-      icon: FaRobot,
-      title: 'Web App Development',
-      description: 'Maßgeschneiderte Web-Anwendungen mit React, Next.js und modernen Frameworks. Skalierbar, schnell und benutzerfreundlich.',
-      link: '/dienstleistungen#webapp',
+      title: 'Frontend Development',
+      description: 'Pixel-perfekte Umsetzung von Designs mit modernen CSS-Frameworks und JavaScript. Interaktive und animierte User Interfaces.',
+      icon: <HiLightningBolt />,
+      features: [
+        'Responsive Design',
+        'CSS Animationen & Transitions',
+        'Component Libraries',
+        'Cross-Browser Kompatibilität'
+      ],
+      gradient: 'bg-gradient-to-br from-purple-500 to-purple-700',
+      link: '/dienstleistungen#frontend'
     },
     {
-      icon: FaHeadset,
-      title: 'E-Commerce Solutions',
-      description: 'Vollständige Online-Shop-Lösungen mit Payment-Integration, Inventory-Management und perfekter User Experience.',
-      link: '/dienstleistungen#ecommerce',
+      title: 'E-Commerce Lösungen',
+      description: 'Skalierbare Online-Shops mit modernen Frameworks. Von kleinen Shops bis zu großen E-Commerce Plattformen.',
+      icon: <HiShoppingCart />,
+      features: [
+        'Shopify & WooCommerce',
+        'Headless Commerce',
+        'Payment Integration',
+        'Inventory Management'
+      ],
+      gradient: 'bg-gradient-to-br from-green-500 to-green-700',
+      link: '/dienstleistungen#ecommerce'
     },
     {
-      icon: FaFileExcel,
-      title: 'Digital Consulting',
-      description: 'Strategische Beratung für Ihre digitale Transformation. Von Konzeption bis zur erfolgreichen Umsetzung Ihrer Vision.',
-      link: '/dienstleistungen#consulting',
-    },
+      title: 'Performance & SEO',
+      description: 'Optimierung von Ladezeiten und Suchmaschinenrankings. Technisches SEO und Core Web Vitals Optimierung.',
+      icon: <HiChartBar />,
+      features: [
+        'Core Web Vitals Optimierung',
+        'Lighthouse Score 90+',
+        'Technical SEO',
+        'Performance Monitoring'
+      ],
+      gradient: 'bg-gradient-to-br from-orange-500 to-red-600',
+      link: '/dienstleistungen#performance'
+    }
   ];
 
   return (
     <section 
-      id="services-section" 
       ref={sectionRef}
-      className="py-32 bg-gray-50 relative overflow-hidden"
+      className="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
     >
-      {/* Background animated elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
         <div 
-          className="absolute w-96 h-96 bg-gray-200/20 rounded-full blur-3xl"
+          className="absolute w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-20"
           style={{
-            transform: `translate(${mousePosition.x * 20}px, ${mousePosition.y * 20}px)`,
-            top: '20%',
-            left: '10%',
+            transform: `translate(${mousePosition.x * 100 - 50}px, ${mousePosition.y * 100 - 50}px)`,
+            top: '10%',
+            left: '20%',
           }}
-        ></div>
+        />
+        <div 
+          className="absolute w-96 h-96 bg-purple-100 rounded-full blur-3xl opacity-20"
+          style={{
+            transform: `translate(${-mousePosition.x * 100 + 50}px, ${-mousePosition.y * 100 + 50}px)`,
+            bottom: '10%',
+            right: '20%',
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div 
-          className={`text-center mb-20 transform transition-all duration-1000 ${sectionVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
-          style={{
-            transform: `translateY(${scrollY * 0.05}px)`,
-          }}
-        >
-          <h2 className="text-5xl lg:text-7xl font-semibold text-gray-900 mb-8 leading-tight overflow-visible">
-            Unsere{' '}
-            <span className="font-semibold text-gray-600 hover:text-gray-500 transition-colors duration-300">
-              Web Services
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Meine{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Services
             </span>
           </h2>
-          <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-normal">
-            Von der ersten Idee bis zum Launch -{' '}
-            <span className="font-medium text-gray-900">wir entwickeln Websites, die begeistern</span>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Von der ersten Zeile Code bis zum fertigen Produkt - ich begleite Sie durch den gesamten Entwicklungsprozess
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-stretch">
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <ServiceCard 
-              key={index} 
-              index={index} 
-              mousePosition={mousePosition}
-              scrollY={scrollY}
-              {...service} 
-            />
+            <ServiceCard key={index} {...service} index={index} />
           ))}
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-blue-400/20 rounded-full animate-pulse"
-              style={{
-                left: `${10 + (i * 8)}%`,
-                top: `${20 + (i * 6)}%`,
-                transform: `translateY(${scrollY * (0.02 + i * 0.01)}px)`,
-                animationDelay: `${i * 0.3}s`,
-              }}
-            ></div>
-          ))}
+        {/* Bottom CTA */}
+        <div className="text-center mt-20">
+          <p className="text-gray-600 mb-6 text-lg">
+            Nicht das Richtige dabei? Kein Problem!
+          </p>
+          <Link href="/kontakt">
+            <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300">
+              Individuelles Projekt besprechen
+            </button>
+          </Link>
         </div>
       </div>
     </section>

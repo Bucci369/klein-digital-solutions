@@ -1,27 +1,16 @@
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useEffect, useState, useRef } from 'react';
+import { HiArrowRight, HiCode, HiLightningBolt, HiSparkles } from 'react-icons/hi';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 const HeroSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsVisible(true);
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     const handleMouseMove = (e: MouseEvent) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        setMousePosition({
-          x: (e.clientX - rect.left - rect.width / 2) / rect.width,
-          y: (e.clientY - rect.top - rect.height / 2) / rect.height,
-        });
-      }
+      setMousePosition({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -33,134 +22,173 @@ const HeroSection = () => {
     };
   }, []);
 
+  const techStack = [
+    { name: 'React', icon: SiReact, color: 'text-blue-400' },
+    { name: 'Next.js', icon: SiNextdotjs, color: 'text-black' },
+    { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
+    { name: 'Tailwind', icon: SiTailwindcss, color: 'text-cyan-500' },
+  ];
+
   return (
-    <section 
-      ref={heroRef}
-      className="min-h-screen bg-white text-gray-900 relative overflow-hidden flex items-center"
-      style={{
-        transform: `translateY(${scrollY * 0.5}px)`,
-      }}
-    >
-      {/* Animated background elements */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-blue-50">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute w-96 h-96 bg-gradient-to-r from-gray-100/30 to-gray-200/30 rounded-full blur-3xl"
+        {/* Gradient Orbs */}
+        <div
+          className="absolute w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
           style={{
-            transform: `translate(${mousePosition.x * 30}px, ${mousePosition.y * 30}px) translateY(${scrollY * 0.2}px)`,
+            transform: `translate(${mousePosition.x * 50}px, ${mousePosition.y * 50}px)`,
             top: '10%',
             left: '10%',
           }}
-        ></div>
-        <div 
-          className="absolute w-64 h-64 bg-gradient-to-r from-blue-100/20 to-gray-100/20 rounded-full blur-2xl"
+        />
+        <div
+          className="absolute w-80 h-80 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl"
           style={{
-            transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px) translateY(${scrollY * 0.1}px)`,
+            transform: `translate(${-mousePosition.x * 30}px, ${-mousePosition.y * 30}px)`,
             bottom: '20%',
             right: '15%',
           }}
-        ></div>
+        />
+        
+        {/* Floating Code Symbols */}
+        <div className="absolute inset-0">
+          {[
+            { symbol: '</>', top: '15%', left: '80%', delay: 0 },
+            { symbol: '{ }', top: '70%', left: '10%', delay: 1 },
+            { symbol: '[ ]', top: '40%', left: '90%', delay: 2 },
+            { symbol: '( )', top: '80%', left: '70%', delay: 3 },
+            { symbol: '//', top: '25%', left: '5%', delay: 4 },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="absolute text-2xl font-mono text-gray-300 animate-float"
+              style={{
+                top: item.top,
+                left: item.left,
+                animationDelay: `${item.delay}s`,
+                animationDuration: '6s',
+              }}
+            >
+              {item.symbol}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Subtle floating elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(3)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-px h-px bg-blue-400/20 rounded-full animate-pulse"
-            style={{
-              left: `${30 + (i * 20)}%`,
-              top: `${40 + (i * 10)}%`,
-              transform: `translateY(${scrollY * (0.05 + i * 0.02)}px)`,
-              animationDelay: `${i * 1}s`,
-            }}
-          ></div>
-        ))}
-      </div>
-      
+      {/* Main Content */}
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        {/* Centered Minimalist Hero Content */}
-        <div className="text-center max-w-6xl mx-auto">
-          <div 
-            className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
-            style={{
-              transform: `translateY(${scrollY * 0.1}px)`,
-            }}
-          >
-            <div className="space-y-8 mb-12">
-              {[
-                { text: 'Wir erschaffen', delay: 0, size: 'text-2xl lg:text-3xl', weight: 'font-light' },
-                { text: 'außergewöhnliche Websites', delay: 300, highlight: true, size: 'text-4xl lg:text-5xl xl:text-6xl', weight: 'font-bold' },
-                { text: 'die Ihre Marke zum Leben erwecken', delay: 600, size: 'text-xl lg:text-2xl', weight: 'font-light' },
-              ].map((line, index) => (
-                <div 
-                  key={index}
-                  className={`transform transition-all duration-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center">
+            {/* Animated Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8 animate-fade-in">
+              <HiLightningBolt className="w-4 h-4" />
+              <span>Full-Stack Web Developer</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight">
+              Moderne Web-Apps
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                die begeistern
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+              Ich entwickle performante, skalierbare und nutzerfreundliche Web-Anwendungen 
+              mit modernsten Technologien. Von der Konzeption bis zum Deploy.
+            </p>
+
+            {/* Tech Stack Icons */}
+            <div className="flex justify-center gap-6 mb-12">
+              {techStack.map((tech, index) => (
+                <div
+                  key={tech.name}
+                  className="group relative"
                   style={{
-                    transitionDelay: `${line.delay + 500}ms`,
+                    animationDelay: `${index * 0.1}s`,
                   }}
                 >
-                  <div 
-                    className={`${line.size} ${line.weight} leading-tight ${
-                      line.highlight 
-                        ? 'bg-gradient-to-r from-blue-600 to-gray-600 bg-clip-text text-transparent' 
-                        : 'text-gray-800'
-                    }`}
-                  >
-                    {line.text}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
+                  <div className="relative bg-white p-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    <tech.icon className={`w-8 h-8 ${tech.color}`} />
+                    <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                      {tech.name}
+                    </span>
                   </div>
                 </div>
               ))}
             </div>
-            
-            {/* Simple elegant line */}
-            <div 
-              className={`h-px bg-gradient-to-r from-transparent via-blue-600 to-transparent mx-auto transition-all duration-1000 delay-1200 mb-12 ${
-                isVisible ? 'w-96 opacity-100' : 'w-0 opacity-0'
-              }`}
-            ></div>
-            
-            <p 
-              className={`text-lg lg:text-xl mb-12 text-gray-600 font-light leading-relaxed max-w-3xl mx-auto transform transition-all duration-1000 delay-1300 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-              style={{
-                transform: `translateY(${scrollY * 0.05}px)`,
-              }}
-            >
-              Von der ersten Idee bis zum Launch – wir entwickeln{' '}
-              <span className="text-gray-900 font-medium">digitale Lösungen</span>, die begeistern.
-            </p>
-            
-            <div 
-              className={`flex flex-col sm:flex-row gap-4 justify-center transform transition-all duration-1000 delay-1400 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
-              <Link href="/kontakt">
-                <button className="btn-primary hover:scale-102 transition-all duration-300">
-                  Website erstellen lassen
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="#portfolio">
+                <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2">
+                  <span>Projekte ansehen</span>
+                  <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
-              <Link href="#portfolio">
-                <button className="btn-secondary hover:scale-102 transition-all duration-300">
-                  Portfolio ansehen
+              <Link href="/kontakt">
+                <button className="px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 border border-gray-200 flex items-center gap-2">
+                  <HiCode className="w-5 h-5" />
+                  <span>Projekt starten</span>
                 </button>
               </Link>
             </div>
+
           </div>
         </div>
       </div>
-      
-      <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
-        style={{
-          transform: `translateX(-50%) translateY(${scrollY * 0.2}px)`,
-        }}
-      >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center hover:border-blue-500 transition-colors duration-300 group">
-          <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-pulse group-hover:bg-blue-500 transition-colors duration-300"></div>
-        </div>
-      </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          33% {
+            transform: translateY(-20px) rotate(5deg);
+          }
+          66% {
+            transform: translateY(10px) rotate(-5deg);
+          }
+        }
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(10px);
+            opacity: 0;
+          }
+        }
+
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.6s ease-out;
+        }
+
+        .animate-scroll {
+          animation: scroll 1.5s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };

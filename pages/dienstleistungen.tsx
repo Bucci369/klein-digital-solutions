@@ -8,79 +8,87 @@ const Dienstleistungen = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
-        <title>Unsere Dienstleistungen - Klein Digital Solutions</title>
-        <meta name="description" content="Unsere Expertise: Excel & Datenverarbeitung, Website-Erstellung, Digitale Automatisierung, IT-Beratung. Maßgeschneiderte digitale Lösungen für Ihr Unternehmen." />
+        <title>Web Development Services - KleinDev</title>
+        <meta name="description" content="Professionelle Web Development Services: React, Next.js, E-Commerce, Performance Optimierung. Moderne Web-Anwendungen die begeistern." />
       </Head>
 
       <Header />
 
       <main className="flex-grow">
-        <section className="py-20 bg-gradient-to-br from-blue-700 to-blue-900 text-white text-center">
+        <section className="py-20 bg-gradient-to-br from-blue-700 to-purple-700 text-white text-center">
           <div className="container mx-auto px-4">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4">Unsere Expertise für Ihren digitalen Erfolg</h1>
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4">Web Development Services</h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              Maßgeschneiderte Lösungen, die Ihre Prozesse optimieren und Ihr Unternehmen voranbringen.
+              Moderne, performante und skalierbare Web-Lösungen mit den neuesten Technologien
             </p>
           </div>
         </section>
 
         <ServiceDetailSection
-          id="excel"
-          title="Excel & Datenverarbeitung"
-          description="Verwandeln Sie komplexe Daten in klare Erkenntnisse und automatisierte Prozesse. Wir entwickeln maßgeschneiderte Excel-Lösungen, die Ihre Arbeitsabläufe vereinfachen, Fehler minimieren und Ihnen wertvolle Zeit sparen. Ob Datenanalyse, Dashboard-Erstellung oder VBA-Programmierung – wir machen Ihre Daten zu Ihrem stärksten Asset."
+          id="webdev"
+          title="Full-Stack Web Development"
+          description="Von der Konzeption bis zum Deployment entwickle ich maßgeschneiderte Web-Anwendungen, die Ihre Geschäftsziele unterstützen. Mit modernsten Technologien wie React, Next.js und Node.js entstehen robuste, skalierbare Lösungen, die Ihre Nutzer begeistern werden."
           features={[
-            'Automatisierung von Berichten und Prozessen',
-            'Entwicklung komplexer Excel-Tools und Dashboards',
-            'Datenbereinigung, -analyse und -visualisierung',
-            'Individualschulungen für effizientes Arbeiten mit Excel',
+            'Single Page Applications (SPA) mit React',
+            'Server-Side Rendering (SSR) mit Next.js',
+            'RESTful APIs und GraphQL Backends',
+            'Datenbankdesign und -optimierung',
+            'Authentication und Authorization',
+            'Cloud Deployment (Vercel, AWS, Netlify)'
           ]}
-          imageSrc="/images/excel-data.jpg"
-          imageAlt="Grafik zur Datenverarbeitung in Excel"
+          imageSrc="/images/web-development.jpg"
+          imageAlt="Modern Web Development"
           isImageLeft={false}
         />
 
         <ServiceDetailSection
-          id="website"
-          title="Website-Erstellung"
-          description="Ihre digitale Visitenkarte im Web – wir designen und entwickeln moderne, responsive und suchmaschinenfreundliche Websites, die nicht nur großartig aussehen, sondern auch konvertieren. Von der Konzeption über das Design bis zur Implementierung mit modernsten Technologien wie Next.js und Tailwind CSS schaffen wir eine starke Online-Präsenz für Ihr Unternehmen."
+          id="frontend"
+          title="Frontend Development"
+          description="Pixel-perfekte Umsetzung Ihrer Designs in lebendige, interaktive Benutzeroberflächen. Mit einem Auge fürs Detail und modernsten Frontend-Technologien schaffe ich User Experiences, die nicht nur gut aussehen, sondern auch intuitiv bedienbar sind."
           features={[
-            'Konzeption und UI/UX-Design',
-            'Entwicklung mit Next.js, React und Tailwind CSS',
-            'Mobile Responsivität und Performance-Optimierung',
-            'SEO-freundliche Implementierung',
+            'Responsive Design für alle Geräte',
+            'Moderne CSS mit Tailwind CSS',
+            'Smooth Animationen mit Framer Motion',
+            'Component-based Architecture',
+            'State Management (Redux, Zustand)',
+            'Accessibility (WCAG) Standards'
           ]}
-          imageSrc="/images/website-creation.jpg"
-          imageAlt="Moderne Website auf Laptop und Smartphone"
+          imageSrc="/images/frontend-development.jpg"
+          imageAlt="Frontend Development"
           isImageLeft={true}
         />
 
         <ServiceDetailSection
-          id="automatisierung"
-          title="Digitale Automatisierung"
-          description="Befreien Sie sich von repetitiven Aufgaben und steigern Sie Ihre Effizienz drastisch. Wir analysieren Ihre Geschäftsprozesse und implementieren maßgeschneiderte Automatisierungslösungen, die Ihre Workflows optimieren. Von der Datenextraktion bis zur Erstellung automatischer Berichte – wir machen Ihr Unternehmen smarter."
+          id="ecommerce"
+          title="E-Commerce Entwicklung"
+          description="Leistungsstarke Online-Shops, die verkaufen. Von kleinen Boutique-Shops bis zu großen E-Commerce-Plattformen entwickle ich Lösungen, die Ihre Produkte optimal präsentieren und den Checkout-Prozess optimieren."
           features={[
-            'Automatisierung von Office-Prozessen (z.B. mit VBA/Power Automate)',
-            'Einrichtung von API-Integrationen',
-            'Entwicklung von Bots für repetitive Aufgaben',
-            'Beratung und Implementierung von Workflow-Automatisierung',
+            'Headless Commerce mit Shopify/Commerce.js',
+            'Custom E-Commerce Lösungen',
+            'Payment Gateway Integration (Stripe, PayPal)',
+            'Inventory und Order Management',
+            'Shopping Cart Optimierung',
+            'Conversion Rate Optimierung'
           ]}
-          imageSrc="/images/automation.jpg"
-          imageAlt="Roboterhand automatisiert Prozesse"
+          imageSrc="/images/ecommerce.jpg"
+          imageAlt="E-Commerce Development"
           isImageLeft={false}
         />
 
         <ServiceDetailSection
-          id="it-beratung"
-          title="IT-Beratung"
-          description="Navigieren Sie sicher durch die digitale Landschaft. Unsere IT-Beratung bietet strategische Unterstützung und maßgeschneiderte Empfehlungen für Ihre technologischen Herausforderungen. Ob Systemoptimierung, Software-Auswahl oder Cybersicherheit – wir sind Ihr Partner für eine zukunftssichere IT-Infrastruktur."
+          id="performance"
+          title="Performance & SEO Optimierung"
+          description="Schnelle Ladezeiten und Top-Rankings in Suchmaschinen. Ich optimiere Ihre Web-Anwendung für maximale Performance und Sichtbarkeit. Mit modernen Techniken und Best Practices sorge ich dafür, dass Ihre Website blitzschnell lädt und von Suchmaschinen geliebt wird."
           features={[
-            'Strategische IT-Planung und -Optimierung',
-            'Beratung bei Hard- und Softwareauswahl',
-            'Sicherheitskonzepte und -audits',
-            'Cloud-Strategien und Migration',
+            'Core Web Vitals Optimierung',
+            'Lighthouse Score 95+ garantiert',
+            'Technical SEO Implementation',
+            'Image und Asset Optimierung',
+            'Code Splitting und Lazy Loading',
+            'Performance Monitoring Setup'
           ]}
-          imageSrc="/images/it-consulting.jpg"
-          imageAlt="IT-Spezialisten analysieren Daten"
+          imageSrc="/images/performance-seo.jpg"
+          imageAlt="Performance und SEO Optimierung"
           isImageLeft={true}
         />
 

@@ -5,18 +5,25 @@ import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import PortfolioSection from '../components/PortfolioSection';
 import InteractiveShowcase from '../components/InteractiveShowcase';
-import KeyBenefitsSection from '../components/KeyBenefitsSection'; // Neu
-import WhyChooseUsSection from '../components/WhyChooseUsSection'; // Neu
-import TestimonialsSection from '../components/TestimonialsSection'; // Neu
-import CallToAction from '../components/CallToAction'; // Vorhanden
+import CallToAction from '../components/CallToAction';
 
 const Home = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
-        <title>Klein Digital Solutions - Website Development & Digital Innovation</title>
-        <meta name="description" content="Professionelle Website-Entwicklung und digitale Lösungen. Moderne Web-Apps, E-Commerce und maßgeschneiderte digitale Erlebnisse." />
+        <title>KleinDev - Full-Stack Web Developer | React, Next.js & TypeScript</title>
+        <meta name="description" content="Full-Stack Web Developer spezialisiert auf moderne Web-Anwendungen mit React, Next.js und TypeScript. Performante, skalierbare Lösungen die begeistern." />
         <link rel="icon" href="/favicon.ico" />
+        
+        {/* Open Graph / Social Media Tags */}
+        <meta property="og:title" content="KleinDev - Full-Stack Web Developer" />
+        <meta property="og:description" content="Moderne Web-Anwendungen mit React, Next.js und TypeScript" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kleindev.de" />
+        
+        {/* Additional SEO */}
+        <meta name="keywords" content="Web Developer, React, Next.js, TypeScript, Full-Stack, Frontend, JavaScript, Web Development" />
+        <meta name="author" content="Klein" />
       </Head>
 
       <Header />
@@ -26,10 +33,6 @@ const Home = () => {
         <ServicesSection />
         <PortfolioSection />
         <InteractiveShowcase />
-        <KeyBenefitsSection /> {/* Neue Sektion */}
-        <WhyChooseUsSection /> {/* Neue Sektion */}
-        <TestimonialsSection /> {/* Neue Sektion */}
-        {/* <ClientsLogosSection />  Optional, falls Sie Kundelogo haben */}
         <CallToAction />
       </main>
 
