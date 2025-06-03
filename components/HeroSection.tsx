@@ -78,11 +78,7 @@ const HeroSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             {/* Animated Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8 animate-fade-in">
-              <HiLightningBolt className="w-4 h-4" />
-              <span>Full-Stack Web Developer</span>
-            </div>
-
+          
             {/* Main Headline */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight">
               Moderne Web-Apps

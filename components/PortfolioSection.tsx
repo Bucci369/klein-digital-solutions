@@ -1,7 +1,6 @@
 // PortfolioSection.tsx
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-// import Image from 'next/image'; // <-- DIESEN IMPORT ENTFERNEN
 import { FaExternalLinkAlt, FaGithub, FaReact, FaJs, FaCss3Alt } from 'react-icons/fa';
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiVercel, SiFramer } from 'react-icons/si';
 import { HiSparkles, HiGlobeAlt, HiCode } from 'react-icons/hi';
@@ -15,8 +14,7 @@ interface ProjectCardProps {
   index: number;
   primaryColor: string;
   secondaryColor: string;
-  icon: React.ReactNode;
-  // imageSrc: string; // <-- DIESE PROP ENTFERNEN
+  icon: React.ReactNode;  
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -28,8 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   index,
   primaryColor,
   secondaryColor,
-  icon,
-  // imageSrc // <-- DIESEN PARAMETER ENTFERNEN
+  icon,  
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);

@@ -35,7 +35,9 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50">
+    <section
+    id="ueber-mich" 
+    className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Header */}

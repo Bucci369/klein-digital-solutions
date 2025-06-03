@@ -18,10 +18,10 @@ const Header = () => {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/dienstleistungen', label: 'Services' },
+    { href: '/#dienstleistungen', label: 'Services' },
     { href: '/#portfolio', label: 'Portfolio' },
-    { href: '/ueber-mich', label: 'Über uns' },
-    { href: '/kontakt', label: 'Kontakt' },
+    { href: '/#ueber-mich', label: 'Über uns' },
+    { href: '/#kontakt', label: 'Kontakt' },
   ];
 
   return (

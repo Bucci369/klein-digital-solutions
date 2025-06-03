@@ -1,12 +1,44 @@
 import Link from 'next/link';
 import { HiArrowRight, HiMail, HiChat, HiLightningBolt } from 'react-icons/hi';
+import { useState, useEffect } from 'react';
+
+// Definiere eine Schnittstelle für die Struktur deiner schwebenden Elemente
+interface FloatingElementStyle {
+  id: number;
+  symbol: string;
+  style: {
+    top: string;
+    left: string;
+    animationDelay: string;
+    animationDuration: string;
+    // position: 'absolute'; // Ist bereits in der Tailwind-Klasse, kann hier aber auch stehen
+  };
+}
 
 const CallToAction = () => {
+  // Gib explizit den Typ für den State an: FloatingElementStyle[]
+  const [floatingElementStyles, setFloatingElementStyles] = useState<FloatingElementStyle[]>([]);
+
+  useEffect(() => {
+    const symbols = ['</', '/>', '{}', '[]', '()'];
+    const generatedElements: FloatingElementStyle[] = symbols.map((symbol, index) => ({
+      id: index,
+      symbol: symbol,
+      style: {
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${index * 0.5}s`,
+        animationDuration: `${10 + index * 2}s`,
+      },
+    }));
+    setFloatingElementStyles(generatedElements);
+  }, []);
+
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700 relative overflow-hidden">
+    <section id="kontakt" className="py-20 bg-gradient-to-br from-blue-600 to-purple-700 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `repeating-linear-gradient(
@@ -15,25 +47,20 @@ const CallToAction = () => {
               transparent 10px,
               rgba(255,255,255,.1) 10px,
               rgba(255,255,255,.1) 20px
-            )`
+            )`,
           }}
         />
       </div>
 
       {/* Floating Elements */}
       <div className="absolute inset-0">
-        {['</', '/>', '{}', '[]', '()'].map((symbol, index) => (
+        {floatingElementStyles.map((element) => (
           <div
-            key={index}
+            key={element.id}
             className="absolute text-white/10 text-6xl font-mono animate-float"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${index * 0.5}s`,
-              animationDuration: `${10 + index * 2}s`,
-            }}
+            style={element.style} // `position: 'absolute'` kommt von der className
           >
-            {symbol}
+            {element.symbol}
           </div>
         ))}
       </div>
