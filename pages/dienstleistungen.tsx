@@ -8,7 +8,7 @@ const Dienstleistungen = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
-        <title>Web Development Services - KleinDev</title>
+        <title>Web Development Services - Klein Digital Solutions</title>
         <meta name="description" content="Professionelle Web Development Services: React, Next.js, E-Commerce, Performance Optimierung. Moderne Web-Anwendungen die begeistern." />
       </Head>
 
@@ -27,7 +27,7 @@ const Dienstleistungen = () => {
         <ServiceDetailSection
           id="webdev"
           title="Full-Stack Web Development"
-          description="Von der Konzeption bis zum Deployment entwickle ich maßgeschneiderte Web-Anwendungen, die Ihre Geschäftsziele unterstützen. Mit modernsten Technologien wie React, Next.js und Node.js entstehen robuste, skalierbare Lösungen, die Ihre Nutzer begeistern werden."
+          description="Von der Konzeption bis zum Deployment entwickeln wir maßgeschneiderte Web-Anwendungen, die Ihre Geschäftsziele unterstützen. Mit modernsten Technologien wie React, Next.js und Node.js entstehen robuste, skalierbare Lösungen, die Ihre Nutzer begeistern werden."
           features={[
             'Single Page Applications (SPA) mit React',
             'Server-Side Rendering (SSR) mit Next.js',
@@ -44,7 +44,7 @@ const Dienstleistungen = () => {
         <ServiceDetailSection
           id="frontend"
           title="Frontend Development"
-          description="Pixel-perfekte Umsetzung Ihrer Designs in lebendige, interaktive Benutzeroberflächen. Mit einem Auge fürs Detail und modernsten Frontend-Technologien schaffe ich User Experiences, die nicht nur gut aussehen, sondern auch intuitiv bedienbar sind."
+          description="Pixel-perfekte Umsetzung Ihrer Designs in lebendige, interaktive Benutzeroberflächen. Mit einem Auge fürs Detail und modernsten Frontend-Technologien schaffen wir User Experiences, die nicht nur gut aussehen, sondern auch intuitiv bedienbar sind."
           features={[
             'Responsive Design für alle Geräte',
             'Moderne CSS mit Tailwind CSS',
@@ -61,7 +61,7 @@ const Dienstleistungen = () => {
         <ServiceDetailSection
           id="ecommerce"
           title="E-Commerce Entwicklung"
-          description="Leistungsstarke Online-Shops, die verkaufen. Von kleinen Boutique-Shops bis zu großen E-Commerce-Plattformen entwickle ich Lösungen, die Ihre Produkte optimal präsentieren und den Checkout-Prozess optimieren."
+          description="Leistungsstarke Online-Shops, die verkaufen. Von kleinen Boutique-Shops bis zu großen E-Commerce-Plattformen entwickeln wir Lösungen, die Ihre Produkte optimal präsentieren und den Checkout-Prozess optimieren."
           features={[
             'Headless Commerce mit Shopify/Commerce.js',
             'Custom E-Commerce Lösungen',
@@ -78,7 +78,7 @@ const Dienstleistungen = () => {
         <ServiceDetailSection
           id="performance"
           title="Performance & SEO Optimierung"
-          description="Schnelle Ladezeiten und Top-Rankings in Suchmaschinen. Ich optimiere Ihre Web-Anwendung für maximale Performance und Sichtbarkeit. Mit modernen Techniken und Best Practices sorge ich dafür, dass Ihre Website blitzschnell lädt und von Suchmaschinen geliebt wird."
+          description="Schnelle Ladezeiten und Top-Rankings in Suchmaschinen. Wir optimieren Ihre Web-Anwendung für maximale Performance und Sichtbarkeit. Mit modernen Techniken und Best Practices sorgen wir dafür, dass Ihre Website blitzschnell lädt und von Suchmaschinen geliebt wird."
           features={[
             'Core Web Vitals Optimierung',
             'Lighthouse Score 95+ garantiert',

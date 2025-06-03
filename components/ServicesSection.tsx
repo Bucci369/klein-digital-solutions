@@ -214,7 +214,7 @@ const ServicesSection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Von der ersten Zeile Code bis zum fertigen Produkt - ich begleite Sie durch den gesamten Entwicklungsprozess
+            Von der ersten Zeile Code bis zum fertigen Produkt - wir begleiten Sie durch den gesamten Entwicklungsprozess
           </p>
         </div>
 

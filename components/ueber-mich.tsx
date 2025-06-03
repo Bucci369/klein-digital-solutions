@@ -8,8 +8,9 @@ const UeberMich = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
-        <title>Über mich - KleinDev | Full-Stack Web Developer</title>
-        <meta name="description" content="Erfahren Sie mehr über mich als Full-Stack Web Developer. Meine Expertise in React, Next.js und moderne Web-Technologien." />
+        <title>Über uns - Klein Digital Solutions | Full-Stack Web Developer</title>
+        {/* Geänderte Beschreibung hier: */}
+        <meta name="description" content="Erfahren Sie, wie Klein Digital Solutions als Ihr Partner für Full-Stack Web Development moderne, leistungsstarke Web-Anwendungen mit React, Next.js und TypeScript realisiert." />
       </Head>
 
       <Header />

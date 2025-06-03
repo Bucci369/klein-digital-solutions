@@ -1,23 +1,20 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { HiArrowRight, HiCode, HiLightningBolt, HiSparkles } from 'react-icons/hi';
+import { HiArrowRight, HiCode, HiLightningBolt } from 'react-icons/hi';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 
 const HeroSection = () => {
-  const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
     };
 
-    window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
@@ -97,7 +94,7 @@ const HeroSection = () => {
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Ich entwickle performante, skalierbare und nutzerfreundliche Web-Anwendungen 
+              Wir entwickeln performante, skalierbare und nutzerfreundliche Web-Anwendungen 
               mit modernsten Technologien. Von der Konzeption bis zum Deploy.
             </p>
 

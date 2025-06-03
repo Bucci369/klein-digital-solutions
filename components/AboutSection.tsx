@@ -25,12 +25,12 @@ const AboutSection = () => {
     {
       icon: <HiHeart className="w-6 h-6" />,
       title: 'Leidenschaft',
-      description: 'Web Development ist nicht nur mein Beruf, sondern meine Leidenschaft.'
+      description: 'Web Development ist nicht nur unser Beruf, sondern unsere Leidenschaft.'
     },
     {
       icon: <HiAcademicCap className="w-6 h-6" />,
       title: 'Lebenslanges Lernen',
-      description: 'Die Tech-Welt entwickelt sich ständig weiter - und ich mit ihr.'
+      description: 'Die Tech-Welt entwickelt sich ständig weiter - und wir mit ihr.'
     },
   ];
 
@@ -41,9 +41,9 @@ const AboutSection = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Über{' '}
+              Erfahren Sie mehr{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                mich
+                über uns {/* DIESE ZEILE MUSS GEÄNDERT WERDEN */}
               </span>
             </h2>
           </div>
@@ -53,25 +53,29 @@ const AboutSection = () => {
             {/* Text Content */}
             <div>
               <h3 className="text-3xl font-bold text-gray-800 mb-6">
-                Hi, ich bin Klein! 👋
+                Willkommen bei Klein Digital Solutions!
               </h3>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Als leidenschaftlicher Web Developer bringe ich Ihre digitalen Ideen zum Leben. 
-                  Mit einem starken Fokus auf moderne Technologien und Best Practices entwickle 
-                  ich Web-Anwendungen, die nicht nur gut aussehen, sondern auch performant und 
-                  benutzerfreundlich sind.
+                  Als Ihr engagierter Partner für Web Development 
+                  bringen wir Ihre digitalen Ideen zum Leben. 
+                  Mit einem starken Fokus auf moderne Technologien 
+                  und Best Practices entwickeln wir Web-Anwendungen, 
+                  die nicht nur gut aussehen, sondern auch 
+                  performant und benutzerfreundlich sind.
                 </p>
                 <p>
-                  Meine Reise in die Webentwicklung begann aus purer Neugier und wurde schnell 
-                  zu meiner größten Leidenschaft. Heute spezialisiere ich mich auf React, Next.js 
-                  und TypeScript, um robuste und skalierbare Lösungen zu schaffen.
+                  Unsere Reise in die Webentwicklung begann aus purer Neugier 
+                  und wurde schnell zu unserer größten Leidenschaft. 
+                  Heute spezialisieren wir uns auf React, Next.js und TypeScript, 
+                  um robuste und skalierbare Lösungen zu schaffen.
                 </p>
                 <p>
-                  Was mich antreibt? Die Möglichkeit, durch Code echte Probleme zu lösen und 
-                  digitale Erlebnisse zu schaffen, die Menschen begeistern. Jedes Projekt ist 
-                  eine neue Herausforderung, bei der ich mein Wissen einsetzen und gleichzeitig 
-                  Neues lernen kann.
+                  Was uns antreibt? 
+                  Die Möglichkeit, durch Code echte Probleme zu lösen 
+                  und digitale Erlebnisse zu schaffen, die Menschen begeistern. 
+                  Jedes Projekt ist eine neue Herausforderung, 
+                  bei der wir unser Wissen einsetzen und gleichzeitig Neues lernen können.
                 </p>
               </div>
             </div>

@@ -13,7 +13,7 @@ const Footer = () => {
       { label: 'Performance & SEO', href: '/dienstleistungen#performance' },
     ],
     company: [
-      { label: 'Über mich', href: '/ueber-mich' },
+      { label: 'Über uns', href: '/ueber-mich' },
       { label: 'Portfolio', href: '/#portfolio' },
       { label: 'Blog', href: '/blog' },
       { label: 'Kontakt', href: '/kontakt' },
@@ -47,7 +47,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400">
-              Full-Stack Web Developer mit Leidenschaft für moderne, performante Web-Anwendungen.
+              Ihr Partner für moderne, performante Web-Anwendungen.
             </p>
             {/* Social Links */}
             <div className="flex gap-4">

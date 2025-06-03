@@ -58,7 +58,7 @@ const CallToAction = () => {
 
           {/* Subheading */}
           <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Von der ersten Idee bis zum fertigen Produkt – ich begleite Sie durch den gesamten Entwicklungsprozess und darüber hinaus.
+            Von der ersten Idee bis zum fertigen Produkt – wir begleiten Sie durch den gesamten Entwicklungsprozess und darüber hinaus.
           </p>
 
           {/* Features */}
