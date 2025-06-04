@@ -115,12 +115,7 @@ const CallToAction = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/kontakt">
-              <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 group">
-                <span>Kostenloses Erstgespräch</span>
-                <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </Link>
+            {/* Der Button "Kostenloses Erstgespräch" wurde hier entfernt */}
             <a href="mailto:info@kleindigitalsolutions.de">
               <button className="px-8 py-4 bg-transparent text-white font-semibold rounded-xl border-2 border-white/50 hover:bg-white/10 hover:border-white transition-all duration-300 flex items-center gap-2">
                 <HiMail className="w-5 h-5" />

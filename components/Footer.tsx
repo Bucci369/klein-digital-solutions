@@ -10,8 +10,8 @@ const Footer = () => {
     company: [
       { label: 'Über uns', href: '/#ueber-mich' }, // Link zur Sektion auf der Startseite
       { label: 'Portfolio', href: '/#portfolio' }, // Link zur Sektion auf der Startseite
-      { label: 'Blog', href: '/blog' },       // Link zur Blog-Seite (stelle sicher, dass diese existiert oder geplant ist)
-      { label: 'Kontakt', href: '/kontakt' },   // Link zur Kontakt-Seite
+      { label: 'Blog', href: '/#blog' },       // Link zur Blog-Seite (stelle sicher, dass diese existiert oder geplant ist)
+      { label: 'Kontakt', href: '/#kontakt' },   // Link zur Kontakt-Seite
     ],
     legal: [
       { label: 'Impressum', href: '/impressum' },

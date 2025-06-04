@@ -88,7 +88,7 @@ const Header = () => {
               </a>
             </div>
 
-            <Link href="/kontakt">
+            <Link href="/#kontakt">
               <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
                 Projekt starten
               </button>
@@ -149,7 +149,7 @@ const Header = () => {
               </a>
             </div>
 
-            <Link href="/kontakt" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/#kontakt" onClick={() => setIsMenuOpen(false)}>
               <button className="w-full mt-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300">
                 Projekt starten
               </button>

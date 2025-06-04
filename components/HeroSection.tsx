@@ -122,7 +122,7 @@ const HeroSection = () => {
                   <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
-              <Link href="/kontakt">
+              <Link href="/#kontakt">
                 <button className="group relative w-full sm:w-auto px-8 py-4 bg-white dark:bg-gray-700 text-gray-700 dark:text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 border border-gray-200 dark:border-gray-600 flex items-center justify-center gap-2">
                   <HiCode className="w-5 h-5" />
                   <span>Projekt starten</span>

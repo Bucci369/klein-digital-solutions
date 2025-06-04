@@ -19,11 +19,10 @@ const Datenschutz = () => {
           <p>Wir freuen uns über Ihr Interesse an unserer Website. Der Schutz Ihrer Privatsphäre ist für uns sehr wichtig. Nachfolgend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.</p>
 
           <h2>1. Verantwortlicher im Sinne der DSGVO</h2>
-          <p>[Dein Name / Firmenname, z.B. Klein Digital Solutions]</p>
-          <p>[Deine vollständige Adresse, z.B. Musterstraße 1, 12345 Musterstadt, Deutschland]</p>
-          <p>[Deine E-Mail-Adresse, z.B. info@kleindigitalsolutions.de]</p>
-          <p>[Deine Telefonnummer (optional)]</p>
-
+          <p>Özgür Azap / Klein Digital Solutions</p>
+          <p>Wittbräcukerstraße 109, 44287, Dortmund, Deutschland</p>
+          <p>info@kleindigitalsolutions.de</p>
+          
           <h2>2. Allgemeine Hinweise zur Datenverarbeitung</h2>
           <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
           <p>Wenn Sie diese Website nutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck dies geschieht.</p>
