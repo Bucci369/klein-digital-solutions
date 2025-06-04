@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { HiMail, HiChat, HiLightningBolt } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
 
