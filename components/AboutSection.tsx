@@ -3,17 +3,17 @@ import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiGit }
 
 const AboutSection = () => {
   const skills = [
-    { name: 'React', icon: SiReact, level: 95 },
-    { name: 'Next.js', icon: SiNextdotjs, level: 90 },
-    { name: 'TypeScript', icon: SiTypescript, level: 85 },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, level: 95 },
-    { name: 'Node.js', icon: SiNodedotjs, level: 80 },
-    { name: 'Git', icon: SiGit, level: 90 },
+    { name: 'React', icon: SiReact, level: 95, color: 'text-blue-500 dark:text-blue-400' }, // Farbe für Dark Mode
+    { name: 'Next.js', icon: SiNextdotjs, level: 90, color: 'text-black dark:text-white' },
+    { name: 'TypeScript', icon: SiTypescript, level: 85, color: 'text-blue-700 dark:text-blue-500' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, level: 95, color: 'text-cyan-500 dark:text-cyan-400' },
+    { name: 'Node.js', icon: SiNodedotjs, level: 80, color: 'text-green-600 dark:text-green-400' },
+    { name: 'Git', icon: SiGit, level: 90, color: 'text-red-500 dark:text-red-400' },
   ];
 
   const values = [
     {
-      icon: <HiCode className="w-6 h-6" />,
+      icon: <HiCode className="w-6 h-6" />, // Icons im Value Grid sind schon weiß auf farbigem Grund
       title: 'Clean Code',
       description: 'Sauberer, wartbarer Code ist die Basis für langfristig erfolgreiche Projekte.'
     },
@@ -36,16 +36,18 @@ const AboutSection = () => {
 
   return (
     <section
-    id="ueber-mich" 
-    className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50">
+      id="ueber-mich"
+      // Dark Mode für Haupt-Sektionshintergrund
+      className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900/30"
+    >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               Erfahren Sie mehr{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                über uns {/* DIESE ZEILE MUSS GEÄNDERT WERDEN */}
+                über uns {/* Dieser Gradient-Text bleibt meist unverändert für Dark Mode */}
               </span>
             </h2>
           </div>
@@ -54,50 +56,51 @@ const AboutSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             {/* Text Content */}
             <div>
-              <h3 className="text-3xl font-bold text-gray-800 mb-6">
+              <h3 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">
                 Willkommen bei Klein Digital Solutions!
               </h3>
-              <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+              <div className="space-y-4 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                 <p>
-                  Als Ihr engagierter Partner für Web Development 
-                  bringen wir Ihre digitalen Ideen zum Leben. 
-                  Mit einem starken Fokus auf moderne Technologien 
-                  und Best Practices entwickeln wir Web-Anwendungen, 
-                  die nicht nur gut aussehen, sondern auch 
+                  Als Ihr engagierter Partner für Web Development
+                  bringen wir Ihre digitalen Ideen zum Leben.
+                  Mit einem starken Fokus auf moderne Technologien
+                  und Best Practices entwickeln wir Web-Anwendungen,
+                  die nicht nur gut aussehen, sondern auch
                   performant und benutzerfreundlich sind.
                 </p>
                 <p>
-                  Unsere Reise in die Webentwicklung begann aus purer Neugier 
-                  und wurde schnell zu unserer größten Leidenschaft. 
-                  Heute spezialisieren wir uns auf React, Next.js und TypeScript, 
+                  Unsere Reise in die Webentwicklung begann aus purer Neugier
+                  und wurde schnell zu unserer größten Leidenschaft.
+                  Heute spezialisieren wir uns auf React, Next.js und TypeScript,
                   um robuste und skalierbare Lösungen zu schaffen.
                 </p>
                 <p>
-                  Was uns antreibt? 
-                  Die Möglichkeit, durch Code echte Probleme zu lösen 
-                  und digitale Erlebnisse zu schaffen, die Menschen begeistern. 
-                  Jedes Projekt ist eine neue Herausforderung, 
+                  Was uns antreibt?
+                  Die Möglichkeit, durch Code echte Probleme zu lösen
+                  und digitale Erlebnisse zu schaffen, die Menschen begeistern.
+                  Jedes Projekt ist eine neue Herausforderung,
                   bei der wir unser Wissen einsetzen und gleichzeitig Neues lernen können.
                 </p>
               </div>
             </div>
 
             {/* Skills Visualization */}
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h4 className="text-2xl font-bold text-gray-800 mb-6">Tech Stack</h4>
+            {/* Dark Mode für Kartenhintergrund und Texte in der Skills-Sektion */}
+            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8">
+              <h4 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Tech Stack</h4>
               <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <div key={index} className="space-y-2">
+                {skills.map((skill) => ( // index entfernt, da skill.name (oder eine ID) besser als key ist
+                  <div key={skill.name} className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <skill.icon className="w-6 h-6 text-gray-700" />
-                        <span className="font-medium text-gray-700">{skill.name}</span>
+                        <skill.icon className={`w-6 h-6 ${skill.color}`} /> {/* Dynamische Farbe für Icons */}
+                        <span className="font-medium text-gray-700 dark:text-gray-200">{skill.name}</span>
                       </div>
-                      <span className="text-sm text-gray-500">{skill.level}%</span>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-1000"
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-1000" // Skill-Bar-Farbe bleibt oft bestehen
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
@@ -108,24 +111,27 @@ const AboutSection = () => {
           </div>
 
           {/* Values Grid */}
+          {/* Dark Mode für Kartenhintergrund und Texte im Values Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-slate-700/50 transition-shadow">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white mb-4">
+                  {/* Icon-Hintergrund und Icon-Farbe bleiben oft bestehen für Akzente */}
                   {value.icon}
                 </div>
-                <h5 className="text-xl font-bold text-gray-800 mb-2">{value.title}</h5>
-                <p className="text-gray-600">{value.description}</p>
+                <h5 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{value.title}</h5>
+                <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
               </div>
             ))}
           </div>
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <p className="text-xl text-gray-600 mb-6">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
               Bereit für Ihr nächstes Projekt?
             </p>
             <a href="/kontakt">
+              {/* Button-Styling kann oft bestehen bleiben, da es kontrastreich ist */}
               <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-2xl transform hover:-translate-y-0.5 transition-all duration-300">
                 Lassen Sie uns zusammenarbeiten
               </button>
