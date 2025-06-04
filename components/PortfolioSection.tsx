@@ -195,18 +195,18 @@ const PortfolioSection = () => {
 
   const projectsData: Omit<ProjectCardProps, 'index'>[] = [
     {
-      title: 'Gastronomie-Website', description: 'Websites für Eisdielen, Cafés und Restaurants', liveUrl: 'https://eis-diele.vercel.app/', githubUrl: '#',
+      title: 'Gastronomie-Website', description: 'Websites für Eisdielen, Cafés und Restaurants', liveUrl: 'https://eis-diele.vercel.app/', githubUrl: 'https://github.com/Bucci369/eis-diele',
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Sanity'],
       primaryColor: '#8B5CF6', secondaryColor: '#3B82F6', icon: <HiSparkles className="w-full h-full" />,
     },
     {
-      title: 'Salon & Beauty Website', description: 'Elegante Online-Präsenz für Friseur- und Kosmetiksalons', liveUrl: '#', githubUrl: '#',
+      title: 'Salon & Beauty Website', description: 'Elegante Online-Präsenz für Friseur- und Kosmetiksalons', liveUrl: '#', githubUrl: 'https://kleindigitalsolutions.de',
       technologies: ['React', 'TypeScript', 'Tailwind', 'Chart.js', 'Vercel'],
       primaryColor: '#F59E0B', secondaryColor: '#EF4444', icon: <HiGlobeAlt className="w-full h-full" />,
     },
     {
       // --- HERE'S THE CHANGE ---
-      title: 'Artist Website', description: 'Kreative Portfolio-Website für Künstler...', liveUrl: 'https://dj-arado-website.vercel.app/', githubUrl: '#',
+      title: 'Artist Website', description: 'Kreative Portfolio-Website für Künstler...', liveUrl: 'https://dj-arado-website.vercel.app/', githubUrl: 'https://github.com/Bucci369/dj_arado_website',
       technologies: ['Next.js', 'Tailwind', 'Framer Motion', 'TypeScript', 'Vercel'],
       primaryColor: '#10B981', secondaryColor: '#06B6D4', icon: <HiCode className="w-full h-full" />,
     },
