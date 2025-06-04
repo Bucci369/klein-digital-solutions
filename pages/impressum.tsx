@@ -58,7 +58,24 @@ const ImpressumPage = () => {
             <p>
               Diese Website befindet sich im Aufbau und dient ausschließlich der
               Präsentation eigener Arbeiten und Projekte. Es findet kein Verkauf
-              von Waren oder Dienstleistungen über diese Website statt.
+              von Waren oder Dienstleistungen über diese Website statt. Das Gewerbe ist aktuell noch nicht angemeldet.
+            </p>
+
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white mt-6">
+              Hosting und Datenschutz
+            </h2>
+            <p>
+              Diese Website wird bei Vercel (Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA) gehostet. 
+              Dabei können beim Zugriff auf die Website Daten, einschließlich IP-Adressen, an Vercel übermittelt werden. 
+              Weitere Informationen zum Datenschutz bei Vercel finden Sie unter&nbsp;
+              <a
+                href="https://vercel.com/legal/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                https://vercel.com/legal/privacy-policy
+              </a>.
             </p>
 
             <h2 className="text-xl font-semibold text-gray-800 dark:text-white mt-6">
