@@ -14,18 +14,11 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>('light'); // Standard-Theme
 
   useEffect(() => {
-    // Beim ersten Laden versuchen, das Theme aus localStorage zu holen
-    // oder die Systemeinstellung als Fallback zu nutzen (aber manuell umschaltbar)
+    // Beim ersten Laden nur gespeicherte Präferenz laden, standardmäßig Light Mode
     const storedTheme = localStorage.getItem('theme') as Theme | null;
-    const prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const updateThemeBasedOnSystem = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem('theme')) { // Nur wenn keine User-Präferenz gespeichert ist
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
 
     if (storedTheme) {
+      // Gespeicherte Präferenz verwenden
       setTheme(storedTheme);
       if (storedTheme === 'dark') {
         document.documentElement.classList.add('dark');
@@ -33,18 +26,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         document.documentElement.classList.remove('dark');
       }
     } else {
-      // Keine gespeicherte Präferenz, Systemeinstellung initial verwenden
-      setTheme(prefersDarkQuery.matches ? 'dark' : 'light');
-      if (prefersDarkQuery.matches) {
-        document.documentElement.classList.add('dark');
-      }
+      // Keine gespeicherte Präferenz - immer Light Mode als Standard
+      setTheme('light');
+      document.documentElement.classList.remove('dark');
     }
-
-    // Listener für Änderungen der Systemeinstellung (optional, für User ohne explizite Wahl)
-    // Diesen Listener könntest du auch weglassen, wenn die Wahl immer explizit sein soll.
-    prefersDarkQuery.addEventListener('change', updateThemeBasedOnSystem);
-    return () => prefersDarkQuery.removeEventListener('change', updateThemeBasedOnSystem);
-
   }, []);
 
   const toggleTheme = () => {
