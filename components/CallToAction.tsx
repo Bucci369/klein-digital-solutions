@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { HiArrowRight, HiMail, HiChat, HiLightningBolt } from 'react-icons/hi';
+import { HiMail, HiChat, HiLightningBolt } from 'react-icons/hi';
 import { useState, useEffect } from 'react';
 
 // Definiere eine Schnittstelle für die Struktur deiner schwebenden Elemente
