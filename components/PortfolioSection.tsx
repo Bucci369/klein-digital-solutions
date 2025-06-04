@@ -205,7 +205,8 @@ const PortfolioSection = () => {
       primaryColor: '#F59E0B', secondaryColor: '#EF4444', icon: <HiGlobeAlt className="w-full h-full" />,
     },
     {
-      title: 'Portfolio Website', description: 'Kreative Portfolio-Website...', liveUrl: '#', githubUrl: '#',
+      // --- HERE'S THE CHANGE ---
+      title: 'Portfolio Website', description: 'Kreative Portfolio-Website...', liveUrl: 'https://dj-arado-website.vercel.app/', githubUrl: '#',
       technologies: ['Next.js', 'Tailwind', 'Framer Motion', 'TypeScript', 'Vercel'],
       primaryColor: '#10B981', secondaryColor: '#06B6D4', icon: <HiCode className="w-full h-full" />,
     },

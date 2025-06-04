@@ -1,9 +1,12 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class', // <--- Wichtig für Theme-Switch
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./contexts/**/*.{js,ts,jsx,tsx,mdx}", // <-- falls du ThemeContext verwendest
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",      // nur wenn du src/ nutzt
   ],
   theme: {
     extend: {
