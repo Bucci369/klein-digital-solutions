@@ -1,8 +1,8 @@
-// components/ServicesSection.tsx
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
-  HiCode, HiLightningBolt, HiShoppingCart, HiChartBar, HiArrowRight, HiCheck
+  HiCode, HiLightningBolt, HiShoppingCart, HiChartBar, HiArrowRight, HiCheck,
+  HiServer
 } from 'react-icons/hi';
 
 interface ServiceCardProps {
@@ -104,23 +104,32 @@ const ServicesSection = () => {
   const services: ServiceCardProps[] = [
     {
       title: 'Web Development', description: 'Moderne, responsive Websites und Web-Apps...', icon: <HiCode />,
-      features: ['Single Page Applications (SPA)','Server-Side Rendering (SSR)','Progressive Web Apps (PWA)','API Integration & Development'],
-      gradient: 'bg-gradient-to-br from-blue-500 to-blue-700', link: '/kontakt?service=Web+Development', index: 0
+      features: ['Single Page Applications (SPA)', 'Server-Side Rendering (SSR)', 'Progressive Web Apps (PWA)', 'API Integration & Development'],
+      gradient: 'bg-gradient-to-br from-blue-500 to-blue-700', link: '/web-development', index: 0
     },
     {
       title: 'Frontend Development', description: 'Pixel-perfekte Umsetzung von Designs...', icon: <HiLightningBolt />,
-      features: ['Responsive Design','CSS Animationen & Transitions','Component Libraries','Cross-Browser Kompatibilität'],
-      gradient: 'bg-gradient-to-br from-purple-500 to-purple-700', link: '/kontakt?service=Frontend+Development', index: 1
+      features: ['Responsive Design', 'CSS Animationen & Transitions', 'Component Libraries', 'Cross-Browser Kompatibilität'],
+      gradient: 'bg-gradient-to-br from-purple-500 to-purple-700', link: '/frontend-development', index: 1
     },
     {
-      title: 'E-Commerce Lösungen', description: 'Skalierbare Online-Shops...', icon: <HiShoppingCart />,
-      features: ['Shopify & WooCommerce','Headless Commerce','Payment Integration','Inventory Management'],
-      gradient: 'bg-gradient-to-br from-green-500 to-green-700', link: '/kontakt?service=E-Commerce+Lösungen', index: 2
+      title: 'Backend-Lösungen',
+      description: 'Robuste und skalierbare APIs & Systeme – KI-gestützt entwickelt.',
+      icon: <HiServer />,
+      features: [
+        'REST & GraphQL APIs',
+        'Auth-Systeme mit JWT & OAuth',
+        'Datenbankdesign (SQL/NoSQL)',
+        'Webhook- & 3rd-Party-Integrationen'
+      ],
+      gradient: 'bg-gradient-to-br from-purple-500 to-indigo-700',
+      link: '/backend-loesungen',
+      index: 2
     },
     {
       title: 'Performance & SEO', description: 'Optimierung von Ladezeiten...', icon: <HiChartBar />,
-      features: ['Core Web Vitals Optimierung','Lighthouse Score 90+','Technical SEO','Performance Monitoring'],
-      gradient: 'bg-gradient-to-br from-orange-500 to-red-600', link: '/kontakt?service=Performance+&+SEO', index: 3
+      features: ['Core Web Vitals Optimierung', 'Lighthouse Score 90+', 'Technical SEO', 'Performance Monitoring'],
+      gradient: 'bg-gradient-to-br from-orange-500 to-red-600', link: '/performance-seo', index: 3
     }
   ];
 
@@ -134,14 +143,14 @@ const ServicesSection = () => {
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div
-          className="absolute w-96 h-96 bg-blue-100 dark:bg-blue-700/20 rounded-full blur-3xl opacity-20 dark:opacity-30" // Orb Farbe leicht angepasst
+          className="absolute w-96 h-96 bg-blue-100 dark:bg-blue-700/20 rounded-full blur-3xl opacity-20 dark:opacity-30"
           style={{
             transform: `translate(${mousePosition.x * 100 - 50}px, ${mousePosition.y * 100 - 50}px)`,
             top: '10%', left: '20%',
           }}
         />
         <div
-          className="absolute w-96 h-96 bg-purple-100 dark:bg-purple-700/20 rounded-full blur-3xl opacity-20 dark:opacity-30" // Orb Farbe leicht angepasst
+          className="absolute w-96 h-96 bg-purple-100 dark:bg-purple-700/20 rounded-full blur-3xl opacity-20 dark:opacity-30"
           style={{
             transform: `translate(${-mousePosition.x * 100 + 50}px, ${-mousePosition.y * 100 + 50}px)`,
             bottom: '10%', right: '20%',
@@ -177,4 +186,5 @@ const ServicesSection = () => {
     </section>
   );
 };
+
 export default ServicesSection;
