@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
-  HiCode, HiLightningBolt, HiShoppingCart, HiChartBar, HiArrowRight, HiCheck,
+  HiCode, HiLightningBolt, HiChartBar, HiArrowRight, HiCheck,
   HiServer
 } from 'react-icons/hi';
 
