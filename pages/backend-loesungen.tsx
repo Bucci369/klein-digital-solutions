@@ -52,10 +52,7 @@ export default function BackendLoesungenPage() {
         <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300 max-w-3xl">
           Von der ersten Beratung bis zum Launch begleiten wir dich mit agilem Projektmanagement, regelmäßigen Updates und einem starken Fokus auf Sicherheit und Skalierbarkeit.
         </p>
-
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition max-w-max">
-          Jetzt Kontakt aufnehmen
-        </button>
+        
       </main>
 
       <Footer />

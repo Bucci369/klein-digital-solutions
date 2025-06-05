@@ -46,10 +46,7 @@ export default function PerformanceSEOPage() {
         <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300 max-w-3xl">
           KI ermöglicht uns, große Datenmengen auszuwerten, Schwachstellen präzise zu identifizieren und Empfehlungen zu geben. So wird dein Webprojekt nicht nur schnell, sondern auch langfristig sichtbar und erfolgreich.
         </p>
-
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition max-w-max">
-          Kontakt aufnehmen
-        </button>
+        
       </main>
 
       <Footer />

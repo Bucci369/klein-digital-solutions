@@ -46,10 +46,7 @@ export default function FrontendDevelopmentPage() {
         <p className="mb-8 text-lg leading-relaxed text-gray-700 dark:text-gray-300 max-w-3xl">
           KI hilft bei der Analyse von Nutzerverhalten, automatisiert Testläufe und unterstützt die Design-Optimierung. So schaffen wir Benutzeroberflächen, die nachhaltig begeistern und effizient funktionieren.
         </p>
-
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition max-w-max">
-          Kontakt aufnehmen
-        </button>
+        
       </main>
 
       <Footer />
