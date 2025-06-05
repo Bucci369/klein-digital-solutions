@@ -200,7 +200,7 @@ const PortfolioSection = () => {
       primaryColor: '#8B5CF6', secondaryColor: '#3B82F6', icon: <HiSparkles className="w-full h-full" />,
     },
     {
-      title: 'Salon & Beauty Website', description: 'Elegante Online-Präsenz für Friseur- und Kosmetiksalons', liveUrl: '#', githubUrl: 'https://kosmetik-website.vercel.app/',
+      title: 'Salon & Beauty Website', description: 'Elegante Online-Präsenz für Friseur- und Kosmetiksalons', liveUrl: '#https://kosmetik-website.vercel.app', githubUrl: 'https://kosmetik-website.vercel.app/',
       technologies: ['React', 'TypeScript', 'Tailwind', 'Chart.js', 'Vercel'],
       primaryColor: '#F59E0B', secondaryColor: '#EF4444', icon: <HiGlobeAlt className="w-full h-full" />,
     },
