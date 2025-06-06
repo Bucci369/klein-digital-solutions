@@ -21,7 +21,9 @@ const ChatbotWidget: React.FC = () => {
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  
   const [botState, setBotState] = useState<BotState>('initial');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [lastUserIntent, setLastUserIntent] = useState<Intent>(null);
 
   const addMessage = (msg: Omit<Message, 'id'>) => {
