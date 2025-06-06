@@ -1,5 +1,5 @@
 // src/services/flowMap.ts
-import { BotState, ChatContext, FlowStateDefinition } from '../types/chatbot';
+import { BotState, ChatContext, FlowStateDefinition } from '../models/chatbot';
 import { getSarcasticResponse, getTechResponse, getGenericResponse } from './responseGenerator';
 
 // Die Map, die unsere Konversation steuert
@@ -8,8 +8,8 @@ export const flowMap: Record<BotState, FlowStateDefinition> = {
   // === INITIAL STATE ===
   initial: {
     onEnter: () => ({
-      responseText: "Hallo! Ich bin Ihr digitaler Assistent von Klein Digital Solutions. Was liegt Ihnen auf dem Herzen?",
-      quickReplies: ['Unsere Services', 'Portfolio', 'Projekt anfragen', 'Was kostet eine Website?'],
+      responseText: "Willkommen bei Klein Digital Solutions! 🚀 Wie kann ich Ihnen heute helfen?",
+      quickReplies: ['🚀 Projekt starten', '💼 Services ansehen', '🎨 Portfolio zeigen', '💰 Preise erfahren'],
     }),
     transitions: {
       SERVICES_GENERAL: 'awaiting_service_choice',
@@ -17,10 +17,12 @@ export const flowMap: Record<BotState, FlowStateDefinition> = {
       TECH_STACK_GENERAL: 'awaiting_tech_choice',
       PORTFOLIO_GENERAL: 'showing_portfolio',
       CONTACT_GENERAL: 'contact_offered',
-      PRICING_INQUIRY: 'initial', // Wird direkt beantwortet, State ändert sich nicht
+      PRICING_INQUIRY: 'initial',
+      PROJECT_WORKFLOW: 'initial',
       OWNER_INQUIRY: 'initial',
       JOKE_TRIGGER: 'initial',
       GREETING: 'initial',
+      HELP: 'initial',
     },
     fallback: (context) => getGenericResponse(context.lastIntent || 'UNKNOWN'),
   },

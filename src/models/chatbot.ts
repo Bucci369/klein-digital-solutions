@@ -1,7 +1,5 @@
-// src/types/chatbot.ts
-// Kompletter und finaler Inhalt. Bitte den gesamten Dateiinhalt hiermit ersetzen.
-
-// --- 1. GRUNDLEGENDE TYPEN (müssen zuerst definiert werden) ---
+// src/models/chatbot.ts
+// FINALE UND KORREKTE VERSION
 
 export type BotState =
   | 'initial'
@@ -23,10 +21,8 @@ export type Intent =
   | 'CONFIRM_YES' | 'CONFIRM_NO'
   | 'JOKE_TRIGGER'
   | 'STRONG_INSULT' | 'MEDIUM_INSULT' | 'AI_PROVOCATION'
+  | 'INFORMAL_GREETING' | 'DIRECT_BOT_GREETING'
   | 'UNKNOWN' | null;
-
-
-// --- 2. ZUSAMMENGESETZTE TYPEN (verwenden die obigen Typen) ---
 
 export interface ChatContext {
   lastIntent: Intent;
@@ -44,6 +40,6 @@ export interface BotResponseObject {
 
 export interface FlowStateDefinition {
   onEnter: (context: ChatContext) => BotResponseObject;
-  transitions: Partial<Record<Intent, BotState>>; // 'Intent' wird jetzt definitiv gefunden
+  transitions: Partial<Record<Intent, BotState>>;
   fallback?: (context: ChatContext) => BotResponseObject;
 }

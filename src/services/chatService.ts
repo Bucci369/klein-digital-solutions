@@ -1,16 +1,9 @@
 // src/services/chatService.ts
-import { BotState, ChatContext, BotResponseObject, Intent } from '../types/chatbot';
+import { BotState, ChatContext, BotResponseObject, Intent } from '../models/chatbot';
 import { matchIntent } from './intentMatcher';
 import { flowMap } from './flowMap';
 import { getTechResponse, getSarcasticResponse, getGenericResponse } from './responseGenerator';
 
-/**
- * Verarbeitet die Benutzernachricht und gibt ein vollständiges Antwortobjekt zurück.
- * @param userMessage Die rohe Nachricht des Benutzers.
- * @param currentState Der aktuelle Zustand des Bots.
- * @param context Der bisherige Chat-Kontext.
- * @returns Ein BotResponseObject mit der Antwort und den nächsten Zuständen.
- */
 export const processMessage = (
   userMessage: string,
   currentState: BotState,
@@ -19,27 +12,42 @@ export const processMessage = (
   const lowerCaseMessage = userMessage.toLowerCase().trim();
   const intent = matchIntent(lowerCaseMessage);
 
+  // KORREKTUR FÜR ts(7053): Sicherheitsprüfung, ob der State in der flowMap existiert.
+  if (!(currentState in flowMap)) {
+    console.error(`Unbekannter BotState: ${currentState}`);
+    return getGenericResponse('UNKNOWN');
+  }
   const currentFlowState = flowMap[currentState];
 
-  // Prüfe, ob es eine definierte Transition für den erkannten Intent gibt
-  if (currentFlowState.transitions[intent]) {
-    const nextState = currentFlowState.transitions[intent]!;
-    const nextFlowState = flowMap[nextState];
-    const response = nextFlowState.onEnter({ ...context, lastIntent: intent });
-    
-    // Spezifische Antworten für Intents, die im selben State bleiben (z.B. Tech-Fragen)
-    if (nextState === 'awaiting_tech_choice' && intent.startsWith('TECH_')) {
-        const techKey = intent.replace('TECH_', '').toLowerCase() as any;
-        return getTechResponse(techKey);
+  // KORREKTUR FÜR ts(2538): Prüfen, ob ein gültiger Intent (nicht null) gefunden wurde.
+  if (intent) {
+    // Prüfe, ob es eine definierte Transition für den erkannten Intent gibt
+    if (intent in currentFlowState.transitions) {
+      const nextState = currentFlowState.transitions[intent]!;
+      
+      // KORREKTUR FÜR ts(7053): Erneute Sicherheitsprüfung für den nächsten State.
+      if (!(nextState in flowMap)) {
+        console.error(`Unbekannter nächster BotState in flowMap: ${nextState}`);
+        return getGenericResponse('UNKNOWN');
+      }
+      
+      const nextFlowState = flowMap[nextState];
+      const response = nextFlowState.onEnter({ ...context, lastIntent: intent });
+      
+      // Spezifische Antworten für Intents, die im selben State bleiben
+      if (nextState === 'awaiting_tech_choice' && intent.startsWith('TECH_')) {
+          const techKey = intent.replace('TECH_', '').toLowerCase() as any;
+          return getTechResponse(techKey);
+      }
+      
+      return response;
     }
     
-    return response;
-  }
-  
-  // Wenn es keine Transition gibt, prüfe, ob es eine direkte Antwort für den Intent gibt
-  const directResponse = getGenericResponse(intent);
-  if (intent !== 'UNKNOWN') {
-      return directResponse;
+    // Wenn es keine Transition gibt, prüfe, ob es eine direkte Antwort für den Intent gibt
+    const directResponse = getGenericResponse(intent);
+    if (intent !== 'UNKNOWN') {
+        return directResponse;
+    }
   }
 
   // Wenn alles fehlschlägt, nutze den Fallback des aktuellen Zustands

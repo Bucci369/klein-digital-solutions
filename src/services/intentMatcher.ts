@@ -1,5 +1,5 @@
 // src/services/intentMatcher.ts
-import { Intent } from '../types/chatbot';
+import { Intent } from '../models/chatbot';
 import * as KW from '../constants/chatbotKeywords';
 
 // Definitionen mit Gewichtung/Priorität
