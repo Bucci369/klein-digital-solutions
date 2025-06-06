@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
-  HiCode, HiLightningBolt, HiChartBar, HiArrowRight, HiCheck,
-  HiServer
+  HiArrowRight, HiCheck, HiCog, HiPuzzle
 } from 'react-icons/hi';
+import { BiCodeAlt, BiServer } from 'react-icons/bi';
+import { FaRocket } from 'react-icons/fa';
 
 interface ServiceCardProps {
   title: string;
@@ -51,7 +52,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Kartenhintergrund etwas heller als Sektionshintergrund für Kontrast */}
       <div className="relative h-full bg-white dark:bg-slate-800 rounded-2xl shadow-xl hover:shadow-2xl dark:hover:shadow-slate-700/50 transition-all duration-300 overflow-hidden">
         <div className={`absolute inset-0 opacity-5 ${gradient}`} />
         <div className="relative p-8 h-full flex flex-col">
@@ -103,19 +103,27 @@ const ServicesSection = () => {
 
   const services: ServiceCardProps[] = [
     {
-      title: 'Web Development', description: 'Moderne, responsive Websites und Web-Apps...', icon: <HiCode />,
+      title: 'Web Development', 
+      description: 'Moderne, responsive Websites und Web-Apps...', 
+      icon: <BiCodeAlt />, // GEÄNDERT von HiCode
       features: ['Single Page Applications (SPA)', 'Server-Side Rendering (SSR)', 'Progressive Web Apps (PWA)', 'API Integration & Development'],
-      gradient: 'bg-gradient-to-br from-blue-500 to-blue-700', link: '/web-development', index: 0
+      gradient: 'bg-gradient-to-br from-blue-500 to-blue-700', 
+      link: '/web-development', 
+      index: 0
     },
     {
-      title: 'Frontend Development', description: 'Pixel-perfekte Umsetzung von Designs...', icon: <HiLightningBolt />,
+      title: 'Frontend Development', 
+      description: 'Pixel-perfekte Umsetzung von Designs...', 
+      icon: <HiPuzzle />, // GEÄNDERT von HiLightningBolt
       features: ['Responsive Design', 'CSS Animationen & Transitions', 'Component Libraries', 'Cross-Browser Kompatibilität'],
-      gradient: 'bg-gradient-to-br from-purple-500 to-purple-700', link: '/frontend-development', index: 1
+      gradient: 'bg-gradient-to-br from-purple-500 to-purple-700', 
+      link: '/frontend-development', 
+      index: 1
     },
     {
       title: 'Backend-Lösungen',
       description: 'Robuste und skalierbare APIs & Systeme – KI-gestützt entwickelt.',
-      icon: <HiServer />,
+      icon: <HiCog />, // GEÄNDERT von HiServer
       features: [
         'REST & GraphQL APIs',
         'Auth-Systeme mit JWT & OAuth',
@@ -127,9 +135,13 @@ const ServicesSection = () => {
       index: 2
     },
     {
-      title: 'Performance & SEO', description: 'Optimierung von Ladezeiten...', icon: <HiChartBar />,
+      title: 'Performance & SEO', 
+      description: 'Optimierung von Ladezeiten...', 
+      icon: <FaRocket />, // GEÄNDERT von HiChartBar
       features: ['Core Web Vitals Optimierung', 'Lighthouse Score 90+', 'Technical SEO', 'Performance Monitoring'],
-      gradient: 'bg-gradient-to-br from-orange-500 to-red-600', link: '/performance-seo', index: 3
+      gradient: 'bg-gradient-to-br from-orange-500 to-red-600', 
+      link: '/performance-seo', 
+      index: 3
     }
   ];
 
@@ -137,7 +149,6 @@ const ServicesSection = () => {
     <section
       ref={sectionRef}
       id="dienstleistungen"
-      // NEUER Dark Mode Haupt-Sektionshintergrund:
       className="py-20 lg:py-32 bg-gray-50 dark:bg-slate-900 relative overflow-hidden"
     >
       {/* Background Effects */}
