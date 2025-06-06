@@ -1,5 +1,5 @@
 // src/services/chatService.ts
-import { BotState, Intent, BotResponseObject } from '../types/chatbot';
+import { BotState, BotResponseObject } from '../types/chatbot';
 import { matchIntent } from './intentMatcher';
 import * as KW from '../constants/chatbotKeywords';
 

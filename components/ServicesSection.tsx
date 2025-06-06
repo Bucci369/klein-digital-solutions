@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {
   HiArrowRight, HiCheck, HiCog, HiPuzzle
 } from 'react-icons/hi';
-import { BiCodeAlt, BiServer } from 'react-icons/bi';
+import { BiCodeAlt, } from 'react-icons/bi';
 import { FaRocket } from 'react-icons/fa';
 
 interface ServiceCardProps {
